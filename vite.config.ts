@@ -2,7 +2,7 @@
  * @Author: dushuai
  * @Date: 2023-04-24 18:31:36
  * @LastEditors: dushuai
- * @LastEditTime: 2023-04-27 16:35:48
+ * @LastEditTime: 2023-04-28 12:09:28
  * @description: vite.config
  */
 import { fileURLToPath, URL } from 'node:url'
@@ -218,15 +218,21 @@ export default defineConfig(({ mode, command }) => {
           rewrite: (path: string) => path.replace(/^\/api/, '')
         }
       }
-    }
+    },
     // css
-    // css: {
-    //   // css预处理器
-    //   preprocessorOptions: {
-    //     scss: {
-    //       additionalData: '@import "@/assets/style/reset.scss";'
-    //     }
-    //   }
-    // }
+    css: {
+      // css预处理器
+      // preprocessorOptions: {
+      //   scss: {
+      //     additionalData: '@import "@/assets/style/reset.scss";'
+      //   }
+      // }
+      postcss: {
+        plugins: [
+          require('tailwindcss'),
+          require('autoprefixer')
+        ]
+      }
+    }
   }
 })
