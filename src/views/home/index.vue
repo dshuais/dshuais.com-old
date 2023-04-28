@@ -2,7 +2,7 @@
  * @Author: dushuai
  * @Date: 2023-04-24 21:20:50
  * @LastEditors: dushuai
- * @LastEditTime: 2023-04-28 17:39:10
+ * @LastEditTime: 2023-04-28 17:57:14
  * @description: index
 -->
 <script setup lang='ts'>
@@ -24,7 +24,6 @@ const helloList = reactive<string[]>([
   '自己的命运掌握在自己的手中。',
   '和平年代，金钱论成败。',
   '做事不讲礼仪，就不会成功。',
-  '会吃醋，会自卑，会心酸，会想你，<br />这大概就是喜欢你的味道。',
   '别怪生活不如意，该得到的都会有，<br />别埋怨，好好过。',
   '最大的痛苦不是失败<br />是我本可以.',
   '当你要选择放弃的时候，想一想是什么让你走到了这里',
@@ -80,7 +79,8 @@ document.body.append(countScript)
         <div class="text-[30px] font-bold italic mb-5 cursor-pointer" @click="handleReload" v-html="helloList[random]">
         </div>
         <div class="leading-relaxed">
-          <div class="text-[16px]">弹幕：<span class="border-b-[1px] cursor-pointer">戳这里</span></div>
+          <!-- <span class="border-b-[1px] cursor-pointer">戳这里</span> -->
+          <div class="text-[16px] flex items-center mb-5">弹幕：<Input /></div>
           <div v-for="(item, index) in list" :key="index">
             <div class="text-[16px]">{{ item.key }}：<span class="mr-3 cursor-pointer" v-for="(v, ind) in item.val"
                 :key="ind" @click="handleJump(v.url)">{{
