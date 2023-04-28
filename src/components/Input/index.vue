@@ -2,7 +2,7 @@
  * @Author: dushuai
  * @Date: 2023-04-28 17:56:22
  * @LastEditors: dushuai
- * @LastEditTime: 2023-04-28 18:19:01
+ * @LastEditTime: 2023-04-28 18:28:51
  * @description: input
 -->
 <script setup lang='ts'>
@@ -32,9 +32,9 @@ svg {
   width: 310px;
   height: 40px;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.2); // 40414f
+  background-color: rgba(255, 255, 255, 0.15); // 40414f
   transform: translate(0px, 0px);
-  box-shadow: 5px 5px rgba(255, 255, 255, 0.25); // 34343f
+  box-shadow: 5px 5px rgba(255, 255, 255, 0.17); // 34343f
 }
 
 .MsgInput {
