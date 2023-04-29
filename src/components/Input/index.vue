@@ -74,7 +74,7 @@ svg {
   border-style: hidden;
 }
 
-.SendSVG:hover {
+.SendSVG:active {
   background-color: #2b2b35;
 }
 
