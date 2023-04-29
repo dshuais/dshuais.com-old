@@ -47,7 +47,8 @@ const list = reactive<Res.MeListRes[]>([
     key: '找到我',
     val: [
       { name: '博客', url: 'https://blog.dshuais.com' },
-      { name: 'GitHub', url: 'https://github.com/dshuais' }
+      { name: 'GitHub', url: 'https://github.com/dshuais' },
+      { name: 'Gitee', url: 'https://gitee.com/dushuais' },
     ]
   }
 ])
@@ -65,6 +66,12 @@ function handleJump(url: string) {
   window.open(url, url)
 }
 
+function handleSend(val: string) {
+  if (val) {
+    danmus.value.push(val)
+  }
+}
+
 // busuanzi
 const countScript = document.createElement('script')
 countScript.async = true
@@ -72,7 +79,7 @@ countScript.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
 document.body.append(countScript)
 </script>
 <template>
-  <vue-danmaku :danmus="danmus" loop :top="20" :right="200" :speeds="180"
+  <vue-danmaku :danmus="danmus" :loop="true" :top="20" :right="200" :speeds="150"
     class="w-full h-screen absolute top-0 bg-[#202124]">
     <div class="w-full h-screen text-[#eee] flex justify-center flex-col items-center tracking-widest z-10 absolute">
       <div>
@@ -80,10 +87,10 @@ document.body.append(countScript)
         </div>
         <div class="leading-relaxed">
           <!-- <span class="border-b-[1px] cursor-pointer">戳这里</span> -->
-          <div class="text-[16px] flex items-center mb-5">弹幕：<Input /></div>
+          <div class="text-[16px] flex items-center mb-5">弹幕：<Input @send="handleSend" /></div>
           <div v-for="(item, index) in list" :key="index">
-            <div class="text-[16px]">{{ item.key }}：<span class="mr-3 cursor-pointer" v-for="(v, ind) in item.val"
-                :key="ind" @click="handleJump(v.url)">{{
+            <div class="text-[16px] flex flex-wrap">{{ item.key }}：<span class="mr-3 cursor-pointer"
+                v-for="(v, ind) in item.val" :key="ind" @click="handleJump(v.url)">{{
                   v.name }}</span></div>
           </div>
         </div>
@@ -91,7 +98,7 @@ document.body.append(countScript)
     </div>
     <div class="absolute bottom-1 text-[#555] text-[12px] text-center w-full z-10">
       <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备2022011303号-1</a>
-      <div>Copyright © 2015 - {{ new Date().getFullYear() }} dshuai | 访问量<span id="busuanzi_value_site_pv"></span>
+      <div>Copyright © 2022 - {{ new Date().getFullYear() }} dshuai | 访问量<span id="busuanzi_value_site_pv"></span>
       </div>
     </div>
   </vue-danmaku>

@@ -16,7 +16,6 @@
     },
     "suppressImplicitAnyIndexErrors": true, // 解决any|string...等不能用于索引的提示
   },
-
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -6,12 +6,24 @@
  * @description: input
 -->
 <script setup lang='ts'>
+const emit = defineEmits<{
+  (e: 'send', value: string): void
+}>()
 
+const input = ref<string>()
+
+function handleSend() {
+  if (input.value) {
+    emit('send', input.value)
+    input.value = ''
+  }
+}
 </script>
 <template>
   <div class="Message">
-    <input title="Write Message" tabindex="i" pattern="\d+" placeholder="Message.." class="MsgInput" type="text">
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="30.000000pt" height="30.000000pt"
+    <input title="Send Danmu" tabindex="i" pattern="\d+" placeholder="Danmu..." class="MsgInput" type="text"
+      v-model="input">
+    <svg @click="handleSend" xmlns="http://www.w3.org/2000/svg" version="1.0" width="30.000000pt" height="30.000000pt"
       viewBox="0 0 30.000000 30.000000" preserveAspectRatio="xMidYMid meet" class="SendSVG">
       <g transform="translate(0.000000,30.000000) scale(0.100000,-0.100000)" fill="#ffffff70" stroke="none">
         <path
