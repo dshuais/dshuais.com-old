@@ -2,7 +2,7 @@
  * @Author: dushuai
  * @Date: 2023-04-24 18:31:36
  * @LastEditors: dushuai
- * @LastEditTime: 2023-04-27 17:22:27
+ * @LastEditTime: 2023-05-04 10:02:24
  * @description: router
  */
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
@@ -42,7 +42,7 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(), // import.meta.env.BASE_URL
   routes
 })
 
