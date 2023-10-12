@@ -2,11 +2,11 @@
  * @Author: dushuai
  * @Date: 2023-04-24 21:20:50
  * @LastEditors: dushuai
- * @LastEditTime: 2023-04-28 17:57:14
+ * @LastEditTime: 2023-10-12 14:17:38
  * @description: index
 -->
 <script setup lang='ts'>
-import vueDanmaku from 'vue3-danmaku'
+import Danmaku from 'danmaku-vue'
 import { randomNum } from '@/utils'
 
 const helloList = reactive<string[]>([
@@ -79,7 +79,7 @@ countScript.src = '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'
 document.body.append(countScript)
 </script>
 <template>
-  <vue-danmaku :danmus="danmus" :channels="0" :loop="true" :top="30" :right="200" :speeds="150"
+  <Danmaku :danmus="danmus" :channels="0" :loop="true" :top="30" :right="200" :speeds="150"
     class="w-full h-screen absolute top-0 bg-[#202124]">
     <div class="w-full h-screen text-[#eee] flex justify-center flex-col items-center tracking-widest z-10 absolute">
       <div>
@@ -101,6 +101,6 @@ document.body.append(countScript)
       <div>Copyright © 2022 - {{ new Date().getFullYear() }} dshuai | 访问量<span id="busuanzi_value_site_pv"></span>
       </div>
     </div>
-  </vue-danmaku>
+  </Danmaku>
 </template>
 <style lang='scss' scoped></style>
